@@ -21,7 +21,7 @@ function confetti() {
     "#8cf5df", "#ffffff", "#ff9a68"
     ];
 
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 900; i++) {
     const piece = document.createElement("div");
     piece.className = "confetti";
     piece.textContent = Math.random() > .5 ? "●" : "✦";
