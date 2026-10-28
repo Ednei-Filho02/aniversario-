@@ -293,3 +293,22 @@ h1 {
     animation-iteration-count: 1 !important;
     }
 }
+
+/* Antes de começar, mostra apenas o botão inicial */
+body:not(.started) .scene > :not(#start) {
+    display: none;
+}
+
+/* Esconde o botão inicial depois do clique */
+body.started #start {
+    display: none;
+}
+
+/* Centraliza o botão na tela inicial */
+body:not(.started) .scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

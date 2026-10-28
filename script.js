@@ -70,14 +70,23 @@ function startAnimation() {
     }, 4750);
 }
 
-replay.addEventListener("click", startAnimation);
-
-// Inicia a surpresa automaticamente.
-startAnimation();
-
+const start = document.getElementById("start");
 const musica = document.getElementById("musica");
-  musica.volume = 0.2;
 
-  musica.play().catch(() => {
-    // Alguns navegadores bloqueiam o autoplay
-  });
+musica.volume = 0.2;
+
+// Começa a surpresa ao clicar no botão.
+start.addEventListener("click", async () => {
+    document.body.classList.add("started");
+
+    startAnimation();
+
+    try {
+        await musica.play();
+    } catch (erro) {
+        console.error("Não foi possível tocar a música:", erro);
+    }
+});
+
+// Permite assistir à animação novamente.
+replay.addEventListener("click", startAnimation);
